@@ -33,6 +33,9 @@ function verify(options) {
     if (options.aliases && !Array.isArray(options.aliases)) {
         throw new Error('Aliases option should be an Array');
     }
+    if (options.output && typeof(options.output) !== "string"){
+        throw new Error('Output option should be a String');
+    }
 }
 
 function update(configuration, rawOptions) {
@@ -40,6 +43,7 @@ function update(configuration, rawOptions) {
         entries: alignEntries,
         whitelist: parseWhitelist,
         strict: Boolean,
+        output: String,
         aliases: aliases => aliases.filter(Boolean),
     });
     options = defaultOptions.get(overrideDefaults);

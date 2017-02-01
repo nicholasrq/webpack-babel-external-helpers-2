@@ -22,6 +22,7 @@ function DefaultOptions() {
     defaults.entries = [];
     defaults.aliases = [];
     defaults.whitelist = [];
+    defaults.output = "global",
     defaults.strict = false;
 
     return defaults;

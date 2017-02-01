@@ -71,11 +71,12 @@ function createModule(dependency) {
 function buildBabelHelpers() {
     let whitelistArgument;
     let whitelist = pluginOptionsController.get('whitelist');
+    let output = pluginOptionsController.get('output');
     if (whitelist.length) {
         whitelistArgument = whitelist;
     }
 
-    return babelCore.buildExternalHelpers(whitelistArgument);
+    return babelCore.buildExternalHelpers(whitelistArgument, output);
 }
 
 function getModuleIdentifier(dependency) {
